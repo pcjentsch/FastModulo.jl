@@ -1,6 +1,6 @@
 # FastModulo
 
-This package contains a basic Julia implementation of the algorithm given in this paper:
+This package contains a very basic Julia implementation of the algorithm given in this paper:
 [Lemire, Daniel, Owen Kaser, and Nathan Kurz. "Faster remainder by direct computation: Applications to compilers and software libraries." Software: Practice and Experience 49.6 (2019): 953-970.](https://arxiv.org/abs/1902.01961)
 
 It computes remainders for `a mod m`, where `a` and `m` are 32 bit integers, and we are computing multiple remainders for a given modulus `m`. It's pretty quick, faster than Julia's native `mod` for this specific problem, although not as fast as their C implementation.
