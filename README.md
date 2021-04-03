@@ -1,4 +1,5 @@
 # FastModulo
+WIP
 
 This package contains a very basic Julia implementation of the algorithm given in this paper:
 [Lemire, Daniel, Owen Kaser, and Nathan Kurz. "Faster remainder by direct computation: Applications to compilers and software libraries." Software: Practice and Experience 49.6 (2019): 953-970.](https://arxiv.org/abs/1902.01961)
