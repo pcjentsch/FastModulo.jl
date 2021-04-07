@@ -2,7 +2,7 @@ using FastModulo
 using Test
 using BenchmarkTools
 using StatsBase
-function inplace_mod!(v,m) #fastest inplace mod I could think of to compare to
+function inplace_mod!(v,m)
     for i in eachindex(v)
         v[i] = mod(v[i],m)
     end
