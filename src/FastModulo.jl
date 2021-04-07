@@ -1,5 +1,6 @@
 module FastModulo
 export Mod,fastmod,fastmod!,divtest
+
 struct Mod
     modulo::UInt32
     modulo_inv::UInt64
@@ -27,7 +28,7 @@ end
 @inline @fastmath function divtest(n::UInt32,T::Mod)::Bool
     return (n*T.modulo_inv) <= (T.modulo_inv - 1)
 end
-@inline function divtest(n::Int32,T::Mod)
+@inline function divtest(n::Int,T::Mod)
     return divtest(convert(UInt32,n),T)
 end
 
