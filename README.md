@@ -9,8 +9,7 @@ The implementation compiles to the same instructions given in the paper (for Cla
 
 There is also a `divtest` function, which returns `a mod m == 0`, again with positive, unsigned 32 bit integer types.
 
-
-This package defines a type `Mod`, that holds the result of the precomputation, and two functions, `fastmod` and `fastmod!`. The latter is an in-place version for arrays which is currently not faster than just looping `fastmod`.
+This package defines a type `Mod`, that holds the result of the precomputation, and two functions, `fastmod` and `fastmod!`. The latter is an in-place version for arrays which is currently not faster than just looping `fastmod`, but I guess it is convenient.
 
 Usage:
 ```
