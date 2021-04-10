@@ -5,7 +5,7 @@ struct Mod
     modulo::UInt32
     modulo_inv::UInt64
     function Mod(d::UInt32)
-        cmod::UInt64 = div(typemax(UInt64), d) + 1
+        cmod::UInt64 = trunc(UInt64,typemax(UInt64) / d) + 1
         return new(d,cmod)
     end
     function Mod(d::Int)
@@ -18,13 +18,16 @@ end
     lowbits::UInt64 = T.modulo_inv * n
     return unsafe_trunc(UInt32,(unsafe_trunc(UInt128,lowbits) * T.modulo) >> 64)
 end
+
 @inline function fastmod(n::Int,T::Mod)
     return fastmod(convert(UInt32,n),T)
 end
-#not much better than a loop, need avx to support UInt32
+
+#not much better than a loop, need avx to support UInt128
 function fastmod!(n::Array{UInt32,N},T::Mod) where N
     n .= (convert.(UInt128,(T.modulo_inv .* n)) .* T.modulo) .>> 64
 end
+
 @inline @fastmath function divtest(n::UInt32,T::Mod)::Bool
     return (n*T.modulo_inv) <= (T.modulo_inv - 1)
 end
