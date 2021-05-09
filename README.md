@@ -3,7 +3,9 @@
 This small package contains a Julia implementation of the algorithm given in this paper:
 [Lemire, Daniel, Owen Kaser, and Nathan Kurz. "Faster remainder by direct computation: Applications to compilers and software libraries." Software: Practice and Experience 49.6 (2019): 953-970.](https://arxiv.org/abs/1902.01961)
 
-It computes remainders for `a mod m`, where `a` and `m` are *unsigned* 32 bit integers. It's pretty quick, faster than Julia's native `mod` if you need to compute multiple remainders for a constant modulus.
+It computes remainders for `a mod m`, where `a` and `m` are *unsigned* 32 bit integers. 
+
+This algorithm seems to be only useful in a very particular case. If you need to compute multiple remainders for a constant modulus, *and* your modulus is not known at compile-time, then it's about twice as fast as Julia's native mod.
 
 The implementation compiles to the same instructions given in the paper (for Clang) which I think is preeettty coooool.
 
